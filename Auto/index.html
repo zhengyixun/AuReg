@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/selectFilter.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<title>园长注册</title>
+</head>
+<body>
+	<div class="main">
+		<div class="head">
+			<img src="img/logo_main.png" alt="" />
+			<span>园长注册</span>
+		</div>
+		<div class="boxF">
+			<div class="boxLeft">学校名称：</div>
+			<div class="boxRight">
+				<input type="text" placeholder="请输入学校名称" class="schoolName" />
+			</div>
+		</div>
+		
+		<div class="boxF">
+			<div class="boxLeft">学校类型：</div>
+			<div class="boxRight filter-box schoolType">
+				<div class="filter-text">
+					<input class="filter-title" type="text" readonly placeholder="请选择学校类型" />
+					<i class="icon icon-filter-arrow"></i>
+				</div>
+				<select name="filter" style="font-size: 0.45rem;">
+					<option value="1">幼儿园</option>
+					<option value="2">小学</option>
+					<option value="3">初中</option>
+					<option value="4">高中</option>
+					<option value="5">小学以及初中</option>
+					<option value="6">初中以及高中</option>
+					<option value="7">小小学初中高中</option>
+					<option value="8">培训机构</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="boxF">
+			<div class="boxLeft">学校性质：</div>
+			<div class="boxRight filter-box schoolXType">
+				<div class="filter-text">
+					<input class="filter-title" type="text" readonly placeholder="请选择学校性质" />
+					<i class="icon icon-filter-arrow"></i>
+				</div>
+				<select name="filter" style="font-size: 0.45rem;">
+					<option value="0">公办园</option>
+					<option value="1">普惠园</option>
+					<option value="2">非营利</option>
+					
+				</select>
+			</div>
+		</div>
+		
+		<div class="boxF">
+			<div class="boxLeft">所属区域：</div>
+			<div class="boxRight Area">
+				<select name="filter" style="font-size: 0.4rem;" class="sheng selectMain">
+					<option value="省">请选择省份</option>
+				</select>
+			</div>
+			<div class="boxRight City">
+
+				<select name="filter" style="font-size: 0.4rem;" class="shi selectMain">
+					<option value="市">请选择市</option>
+				</select>
+			</div>
+			<div class="boxRight Zone">
+				<select name="filter" style="font-size: 0.4rem;" class="qu selectMain">
+					<option value="区">区</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="boxF">
+			<div class="boxLeft">园长姓名：</div>
+			<div class="boxRight">
+				<input type="text" placeholder="请输入园长姓名" class="ManageName" />
+			</div>
+		</div>
+		<div class="boxF" style="display: none;">
+			<div class="boxLeft">园长性别：</div>
+			<div class="boxRight filter-box ManageSex">
+				<div class="filter-text">
+					<input class="filter-title" type="text" readonly placeholder="请选择园长性别" />
+					<i class="icon icon-filter-arrow"></i>
+				</div>
+				<select name="filter" style="font-size: 0.45rem;">
+					<option value="1">男</option>
+					<option value="2">女</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="boxF">
+			<div class="boxLeft">手机号：</div>
+			<div class="boxRight">
+				<input type="number" placeholder="请输入手机号" class="Phone" style="width: 50%;float: left;text-align: left;" />
+				<div class="DoCode" style="width: 50%;font-size: 0.45rem;float: left;height: 100%;text-align: center;line-height: 1.5rem;color: #fff;background: #22AC38;">发送验证码</div>
+			</div>
+		</div>
+		<div class="boxF">
+			<div class="boxLeft">验证码：</div>
+			<div class="boxRight">
+				<input type="text" placeholder="请输入验证码" class="ECode" />
+			</div>
+		</div>
+		
+		<div class="boxF tjr">
+			<div class="boxLeft">推荐人：</div>
+			<div class="boxRight">
+				<input type="text" placeholder="代理商名称" class="TPeopleName" readonly="readonly" />
+			</div>
+		</div>
+		
+		<!--提交-->
+		<div class="submit">提 交</div>
+		<span class="bot">· 波 菲 幼 教 装 备 研 究 院 ·</span>
+	</div>
+</body>
+</html>

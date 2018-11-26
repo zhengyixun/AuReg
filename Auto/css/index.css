@@ -1,0 +1,194 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.main{
+	width: 100%;height: auto;
+}
+.head{
+	width: 6rem;padding: 1rem 0;height: 3.35rem;margin: 0 auto;overflow: hidden;
+}
+.head > img{
+	width: 1.5rem;height: 1.35rem;display: block;float: left;
+}
+.head > span{
+	display: block;float: left;color: #22AC38;
+}
+.boxF{
+	width: 90%;margin: 0 auto;height: 1.5rem;border-bottom: 0.01rem solid #eaeaea;
+}
+
+.boxLeft{
+	width: 25%;height: 100%;font-size: 0.45rem;float: left;line-height: 1.5rem;
+}
+.boxRight{
+	width: 75%;height: 100%;float: left;
+}
+
+.boxRight > input{
+	border: none;outline: none;box-sizing: none;width: 100%;height: 99%;text-align: right;display: block;padding-right: 0.7rem;font-size: 0.4rem;
+	color:#666
+}
+::-webkit-input-placeholder{
+	font-size: 0.43rem;
+}
+.submit{
+	color: #fff;text-align: center;width: 90%;height: 1.3rem;line-height: 1.3rem;border-radius: 0.1rem;background: #22AC38;font-size: 0.45rem;margin: 1rem auto;
+}
+.bot{
+	display: block;width: 100%;text-align: center;font-size: 0.3rem;color: #666;margin-bottom:1rem ;
+}
+
+
+/*弹出提示框start*/
+.alert{ position: fixed; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0,0,0,.3); z-index: 100; display: -webkit-box; -webkit-box-align: center; -webkit-box-pack: center;}
+.alert div{ background-color: #fff; border-radius: .5rem; width: 70%;}
+.alert span.title{ display: block; text-align: center; font-size: 0.4rem; padding: .2rem;}
+.alert span.msg{ padding: .2rem .4rem; font-size: .45rem; line-height: 1rem; display: block;text-align: center;}
+.alert span.btn{ display: block; text-align: center; padding: 0.2rem; border-top: 0.01rem solid #cfcfcf; font-size: 0.4rem; margin-top: .2rem;}
+/*弹出提示框end*/
+
+li {
+	list-style: none;
+}
+
+.filter-disabled {
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.filter-box {
+    position: relative;
+}
+
+.filter-box select {
+	display: none;
+}
+
+.filter-text {
+	height: 99%;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	padding: 0 30px 0 10px;
+	background: #fff;
+}
+
+.filter-text input {
+	font-size: 0.45rem;
+}
+
+.filter-text .filter-title {
+	width: 100%;
+	height: 1.49rem;
+	line-height: 1.5rem;
+	text-align: right;
+	border: 0;
+	background-color: transparent;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0;
+	cursor: pointer;
+	display: block;
+	font-size: 0.45rem;
+color: #666;
+}
+.Area,.City,.Zone{
+	width: 25%;
+}
+.selectMain{
+	width: 100%;border: none;outline: none;height: 100%;display: block;
+}
+.filter-list {
+	display: none;
+	width: 100%;
+	height: 10rem;
+	overflow-y: scroll;
+	background-color: #fafafa;
+	font-size: 0.45rem;
+	position: absolute;
+	top: 1.5rem;
+	left: 0;
+	z-index: 99;
+	border: 0.01rem solid #e6e6e6;
+	overflow: auto;
+}
+
+.filter-list li.filter-null a {
+	color: #d2d2d2;
+}
+
+.filter-list li a {
+	display: block;
+	padding: 0 0.2rem;
+	line-height: 1.2rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	text-align: right;
+}
+
+.filter-list li:hover {
+	background-color: #f2f2f2;
+}
+
+.filter-list li.filter-selected {
+	background-color: #5FB878;
+}
+
+.filter-list li.filter-selected a{
+	display: block;
+	color: #fff;
+}
+
+.filter-list li.filter-disabled {
+	background-color: #fff;
+}
+
+.filter-list li.filter-disabled a{
+	display: block;
+	color: #d2d2d2;
+}
+
+.filter-list li.filter-disabled:hover a {
+	cursor: not-allowed!important;
+	background-color: #fff;
+}
+
+.icon {
+	position: absolute;
+}
+
+.icon-filter-arrow {
+	width: 0.2rem;
+	height: 0.2rem;
+	background-repeat: no-repeat;
+    background-image: url(../img/icon_arrow_down_x2.png);
+    background-size: 100%;
+    right: 10px;
+    top: 0;
+    bottom: 0;margin-bottom: auto;margin-top: auto;
+    transition: all .3s;
+}
+
+.icon-filter-arrow.filter-show {
+	-webkit-transform: rotate(-180deg);
+	transform: rotate(-180deg);
+}
+
+.filter-list::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+
+.filter-list::-webkit-scrollbar-track {
+	background: #fff 
+}
+
+.filter-list::-webkit-scrollbar-thumb {
+	background: #CBCBCB;
+}
