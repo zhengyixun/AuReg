@@ -20,21 +20,24 @@
 }
 
 .boxLeft{
-	width: 25%;height: 100%;font-size: 0.45rem;float: left;line-height: 1.5rem;
+	width: 25%;height: 100%;font-size: 0.4rem;float: left;line-height: 1.5rem;
 }
 .boxRight{
 	width: 75%;height: 100%;float: left;
 }
-
+select option,select{
+	color: #666;
+	background: none;outline: none;box-shadow: none;
+}
 .boxRight > input{
-	border: none;outline: none;box-sizing: none;width: 100%;height: 99%;text-align: right;display: block;padding-right: 0.7rem;font-size: 0.4rem;
-	color:#666
+	border: none;outline: none;box-sizing: none;width: 100%;height: 99%;text-align: left;display: block;padding-right: 0.7rem;font-size: 0.4rem;
+	color:#666;background: none;
 }
 ::-webkit-input-placeholder{
-	font-size: 0.43rem;
+	font-size: 0.4rem;
 }
 .submit{
-	color: #fff;text-align: center;width: 90%;height: 1.3rem;line-height: 1.3rem;border-radius: 0.1rem;background: #22AC38;font-size: 0.45rem;margin: 1rem auto;
+	color: #fff;text-align: center;width: 90%;height: 1.3rem;line-height: 1.3rem;border-radius: 0.1rem;background: #22AC38;font-size: 0.4rem;margin: 1rem auto;
 }
 .bot{
 	display: block;width: 100%;text-align: center;font-size: 0.3rem;color: #666;margin-bottom:1rem ;
@@ -45,7 +48,7 @@
 .alert{ position: fixed; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0,0,0,.3); z-index: 100; display: -webkit-box; -webkit-box-align: center; -webkit-box-pack: center;}
 .alert div{ background-color: #fff; border-radius: .5rem; width: 70%;}
 .alert span.title{ display: block; text-align: center; font-size: 0.4rem; padding: .2rem;}
-.alert span.msg{ padding: .2rem .4rem; font-size: .45rem; line-height: 1rem; display: block;text-align: center;}
+.alert span.msg{ padding: .2rem .4rem; font-size: .4rem; line-height: 1rem; display: block;text-align: center;}
 .alert span.btn{ display: block; text-align: center; padding: 0.2rem; border-top: 0.01rem solid #cfcfcf; font-size: 0.4rem; margin-top: .2rem;}
 /*弹出提示框end*/
 
@@ -77,7 +80,7 @@ li {
 }
 
 .filter-text input {
-	font-size: 0.45rem;
+	font-size: 0.4rem;
 }
 
 .filter-text .filter-title {
@@ -93,14 +96,17 @@ li {
 	padding: 0;
 	cursor: pointer;
 	display: block;
-	font-size: 0.45rem;
+	font-size: 0.4rem;
 color: #666;
 }
 .Area,.City,.Zone{
 	width: 25%;
 }
 .selectMain{
-	width: 100%;border: none;outline: none;height: 100%;display: block;
+	width: 100%;border: none;outline: none;height: 100%;display: block;background: none;box-shadow: none;text-align: right;
+}
+.selectMain > option{
+	text-align: right;
 }
 .filter-list {
 	display: none;
@@ -108,7 +114,7 @@ color: #666;
 	height: 10rem;
 	overflow-y: scroll;
 	background-color: #fafafa;
-	font-size: 0.45rem;
+	font-size: 0.4rem;
 	position: absolute;
 	top: 1.5rem;
 	left: 0;

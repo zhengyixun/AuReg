@@ -1,6 +1,6 @@
 $(function(){
-	var schoolName = "",schoolType = "",Area="",City = "",Zone="",manageName="",manageSex="",phoneNumber="",ECode="",Tpeople="",Tname="",schoolXType="";
-	
+	var schoolName = "",schoolType = $(".lx option:selected").val(),Area="",City = "",Zone="",manageName="",manageSex="",phoneNumber="",ECode="",Tpeople="",Tname="",schoolXType=$(".xz option:selected").val();
+	var ddsId = "",ddsName=""
 	
 	//从地址栏获取地址栏id
 	$.getRequest = function () {
@@ -54,7 +54,7 @@ $(function(){
 		});
 	};
 	function setTime(){
-		var num = 5;
+		var num = 60;
 		$(".DoCode").text("5s后重发")
 		var t = setInterval(function(){
 			if(num>0){
@@ -70,7 +70,7 @@ $(function(){
 	
 	//根据代理商id获取代理商名称
 	var dName;
-	if(d!==""){
+	if(d!==""||$(".dds option").length==1){
 		$.ajax_({
 			method:"GetDistriNameByIdStr",
 			data:{
@@ -81,6 +81,11 @@ $(function(){
 				if(data.Result == true){
 					$(".TPeopleName").val(data.Msg);
 					dName = data.Msg;
+					var dataMsg = JSON.parse(data.Msg).list;
+					console.log(dataMsg)
+					dataMsg.forEach(function(item,index){
+						$("<option>").attr("value",item.id).text(item.name).appendTo($(".dds"))
+					})
 				}else{
 					console.log(data.Msg);
 				}
@@ -94,44 +99,26 @@ $(function(){
 		console.log("代理商id为空");
 	}
 	
-	
-	$('.schoolType').selectFilter({
-		callBack : function (val){  //-----------学校类型
-			//返回选择的值
-			console.log(val+'-学校类型')
-			schoolType = val;
-		}
-	});
-	//省
-//	$('.Area').selectFilter({     //------省
-//		callBack : function (val){
+	$(".dds").change(function(){
+		ddsId = $(".dds option:selected").val();
+		ddsName = $(".dds option:selected").text();
+//		alert(ddsId + "---"+ddsName)
+	})
+//	$('.schoolType').selectFilter({
+//		callBack : function (val){  //-----------学校类型
 //			//返回选择的值
-//			console.log(val+'-省');
-//			Area=val;
+//			console.log(val+'-学校类型')
+//			 = val;
 //		}
 //	});
-	
-//	$('.Zone').selectFilter({//---------------------------------区
-//		callBack : function (val){
-//			//返回选择的值
-//			console.log(val+'-取');
-//			Zone = val;
-//		}
-//	});
-	$('.ManageSex').selectFilter({   //--------------------------------------------园长性别
-		callBack : function (val){
-			//返回选择的值
-			console.log(val+'-园长性别')
-			manageSex = val
-		}
-	});
-	$('.schoolXType').selectFilter({   //--------------------------------------------学校性质
-		callBack : function (val){
-			//返回选择的值
-			console.log(val+'-学校性质')
-			schoolXType = val;}
+	$(".lx").change(function(){
+		 schoolType = $(".lx option:selected").val();
+	})
 
-	});
+	$(".xz").change(function(){
+		schoolXType = $(".xz option:selected").val();
+	})
+	
 	$(".sheng").change(function(){
 		var id = $(".sheng option:selected").val();
 		Area = id;
@@ -174,7 +161,11 @@ $(function(){
 				var data = JSON.parse(e.d);
 				$(".shi").empty();
 				data.forEach(function(item,index){
-					$("<option>").attr("value",item.id).text(item.name).appendTo($(".shi"))
+					$("<option>").attr("value",item.id).text(item.name).appendTo($(".shi"));
+					console.log(index);
+					if(index == 0){
+						getZone(item.id)
+					}
 				});
 				
 			},
@@ -190,10 +181,12 @@ $(function(){
 			data:{id:id},
 			success:function(e){
 				var data = JSON.parse(e.d);
-					$(".qu").empty();
-					data.forEach(function(item,index){
-						$("<option>").attr("value",item.id).text(item.name).appendTo($(".qu"))
-					})
+				$(".qu").empty();
+				data.forEach(function(item,index){
+					$("<option>").attr("value",item.id).text(item.name).appendTo($(".qu"))
+				})
+				var id = $(".qu option:selected").val();
+				Zone  = id;
 			},
 			error:function(e){
 				console.log(e)
@@ -252,16 +245,9 @@ $(function(){
 			$.dialog({msg:"请输入学校名称"})
 			return
 		}
-		if(schoolType == ""){
-			$.dialog({msg:"请选择学校类型"})
-			return
-		}
-		if(schoolXType == "" && schoolXType!=0){
-			alert(schoolXType)
-			$.dialog({msg:"请选择学校性质"})
-			return
-		}
-		if(Area == ""||City == "" || Zone == ""){
+		
+		
+		if(Zone == ""){
 			$.dialog({msg:"请选择省、市、区"})
 			return
 		}
@@ -280,8 +266,8 @@ $(function(){
 		$.ajax_({
 			method:"SaveReceiveCustomerSchool",
 			data:{
-				distri_id:d,     //代理商id
-				distri_name:dName,    //---------------代理商名称
+				distri_id:ddsId,     //代理商id
+				distri_name:ddsName,    //---------------代理商名称
 				school_name : schoolName,  //-------------------学校名称
 				school_type : schoolType,  //学校类型
         		school_nature :schoolXType ,   //学校性质
@@ -296,7 +282,7 @@ $(function(){
 				var data = JSON.parse(e.d);
 				if(data.Result == true){
 					$.dialog({msg:"注册成功，请等待我们的审核，审核成功后将会有专人联系您"});
-					schoolName = "";schoolType = "";manageName="";phoneNumber="";ECode="";schoolXType="";
+					schoolName = "";manageName="";phoneNumber="";ECode="";
 					$("input").val("")
 				}else{
 					$.dialog({msg:"注册失败"});
@@ -304,7 +290,13 @@ $(function(){
 			},
 			error:function(e){
 				console.log(e)
-				
+				console.log(e)
+				console.log(e)
+				console.log(e)
+				console.log(e)
+				console.log(e)
+				console.log(e)
+				console.log(e)
 			}
 		})
 	})

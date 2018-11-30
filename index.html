@@ -6,7 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/selectFilter.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/index.css"/>
 	<title>园长注册</title>
@@ -26,19 +25,11 @@
 		
 		<div class="boxF">
 			<div class="boxLeft">学校类型：</div>
-			<div class="boxRight filter-box schoolType">
-				<div class="filter-text">
-					<input class="filter-title" type="text" readonly placeholder="请选择学校类型" />
-					<i class="icon icon-filter-arrow"></i>
-				</div>
-				<select name="filter" style="font-size: 0.45rem;">
-					<option value="1">幼儿园</option>
+			<div class="boxRight">
+				<select name="filter" style="font-size: 0.4rem;text-align: right;" class="lx selectMain">
+					<option value="">请选择学校类型</option>
+					<option value="1" selected="selected">幼儿园</option>
 					<option value="2">小学</option>
-					<option value="3">初中</option>
-					<option value="4">高中</option>
-					<option value="5">小学以及初中</option>
-					<option value="6">初中以及高中</option>
-					<option value="7">小小学初中高中</option>
 					<option value="8">培训机构</option>
 				</select>
 			</div>
@@ -46,16 +37,12 @@
 		
 		<div class="boxF">
 			<div class="boxLeft">学校性质：</div>
-			<div class="boxRight filter-box schoolXType">
-				<div class="filter-text">
-					<input class="filter-title" type="text" readonly placeholder="请选择学校性质" />
-					<i class="icon icon-filter-arrow"></i>
-				</div>
-				<select name="filter" style="font-size: 0.45rem;">
+			<div class="boxRight">
+				<select name="filter" style="font-size: 0.4rem;" class="xz selectMain">
+					<option value="">请选择学校性质</option>
 					<option value="0">公办园</option>
-					<option value="1">普惠园</option>
+					<option value="1" selected="selected">普惠园</option>
 					<option value="2">非营利</option>
-					
 				</select>
 			</div>
 		</div>
@@ -88,11 +75,7 @@
 		</div>
 		<div class="boxF" style="display: none;">
 			<div class="boxLeft">园长性别：</div>
-			<div class="boxRight filter-box ManageSex">
-				<div class="filter-text">
-					<input class="filter-title" type="text" readonly placeholder="请选择园长性别" />
-					<i class="icon icon-filter-arrow"></i>
-				</div>
+			<div class="boxRight ManageSex">
 				<select name="filter" style="font-size: 0.45rem;">
 					<option value="1">男</option>
 					<option value="2">女</option>
@@ -117,7 +100,10 @@
 		<div class="boxF tjr">
 			<div class="boxLeft">推荐人：</div>
 			<div class="boxRight">
-				<input type="text" placeholder="代理商名称" class="TPeopleName" readonly="readonly" />
+				<!--<input type="text" placeholder="代理商名称" class="TPeopleName" readonly="readonly" />-->
+				<select name="filter" style="font-size: 0.4rem;text-align: right;" class="dds selectMain">
+					<option value="">请选择代理商</option>
+				</select>
 			</div>
 		</div>
 		
