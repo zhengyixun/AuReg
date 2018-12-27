@@ -7,13 +7,13 @@
 	width: 100%;height: auto;
 }
 .head{
-	width: 6rem;padding: 1rem 0;height: 3.35rem;margin: 0 auto;overflow: hidden;
+	width: 100%;padding: 1rem 0 0 0;height: auto;margin: 0 auto;overflow: hidden;
 }
 .head > img{
-	width: 1.5rem;height: 1.35rem;display: block;float: left;
+	width: 1.5rem;height: 1.35rem;display: block;margin:0 auto;
 }
 .head > span{
-	display: block;float: left;color: #22AC38;
+	display: block;color: #22AC38;font-size: 0.7rem;text-align: center;margin: 0.5rem auto 
 }
 .boxF{
 	width: 90%;margin: 0 auto;height: 1.5rem;border-bottom: 0.01rem solid #eaeaea;
